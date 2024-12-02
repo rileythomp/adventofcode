@@ -17,7 +17,6 @@ for line in lines:
 
 print(ans)
 
-
 ans = 0
 for line in lines:
     nums = [int(n) for n in line.split()]
