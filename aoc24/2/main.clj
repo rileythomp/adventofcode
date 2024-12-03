@@ -5,7 +5,7 @@
 
 (defn adjacent-diff? [nums]
   (->> (map #(abs (- %1 %2)) (rest nums) nums)
-       (every? #(and (>= % 1) (<= % 3)))))
+       (every? #{1 2 3})))
 
 (defn is-safe? [nums]
   (and (ordered? nums) (adjacent-diff? nums)))
