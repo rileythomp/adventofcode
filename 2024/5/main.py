@@ -16,9 +16,6 @@ for order in orders:
     n1, n2 = order.split("|")
     followers[int(n1)].append(int(n2))
 
-print(followers)
-
-
 def ordered(nums):
     seen = {}
     for num in nums:
