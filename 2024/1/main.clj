@@ -1,7 +1,10 @@
 (require '[clojure.string :as str])
 
-(def pairs (->> (slurp "in.txt")
-                str/split-lines
+(def data (slurp (first *command-line-args*)))
+
+(def lines (str/split data #"\n"))
+
+(def pairs (->> lines
                 (map #(str/split % #"   "))))
 
 (def lefts (sort (map #(Integer/parseInt (first %)) pairs)))

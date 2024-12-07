@@ -6,12 +6,12 @@
 
 (def grid (mapv vec lines))
 
-(def init-coord   (some (fn [[y row]]
-                          (when-let [x (some (fn [[x cell]]
-                                               (when (= \^ cell) x))
-                                             (map-indexed  vector row))]
-                            [y x]))
-                        (map-indexed vector grid)))
+(def init-coord (some (fn [[y row]]
+                        (when-let [x (some (fn [[x cell]]
+                                             (when (= \^ cell) x))
+                                           (map-indexed  vector row))]
+                          [y x]))
+                      (map-indexed vector grid)))
 
 (defn turn [cury curx move]
   (case move
