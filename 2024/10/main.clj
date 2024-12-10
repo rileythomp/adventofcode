@@ -31,14 +31,14 @@
                 (recur queue' seen trails trails2)))))))
 
 (def trails (reduce
-             (fn [[ans ans2] [y row]]
+             (fn [[trails trails2] [y row]]
                (reduce
-                (fn [[ans ans2] [x cell]]
+                (fn [[trails trails2] [x cell]]
                   (if (zero? cell)
-                    (let [[trails trails2] (count-trails grid y x)]
-                      [(+ ans trails) (+ ans2 trails2)])
-                    [ans ans2]))
-                [ans ans2]
+                    (let [[t t2] (count-trails grid y x)]
+                      [(+ trails t) (+ trails2 t2)])
+                    [trails trails2]))
+                [trails trails2]
                 (map-indexed vector row)))
              [0 0]
              (map-indexed vector grid)))
