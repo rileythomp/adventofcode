@@ -10,7 +10,7 @@
   (and (<= 0 y (dec (count grid)))
        (<= 0 x (dec (count (first grid))))))
 
-(defn count-trails2 [grid y x]
+(defn count-trails [grid y x]
   (loop [queue [[(get-in grid [y x]) [y x]]]
          seen #{}
          trails 0
@@ -35,7 +35,7 @@
                (reduce
                 (fn [[ans ans2] [x cell]]
                   (if (zero? cell)
-                    (let [[trails trails2] (count-trails2 grid y x)]
+                    (let [[trails trails2] (count-trails grid y x)]
                       [(+ ans trails) (+ ans2 trails2)])
                     [ans ans2]))
                 [ans ans2]
